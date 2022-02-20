@@ -1,7 +1,5 @@
-if (process.env.NODE_ENV === 'development') {
-    require('dotenv').config()
-}
 
+require('dotenv').config()
 const express = require('express');
 const morgan = require('express');
 const multer = require('multer');
@@ -12,7 +10,8 @@ const cors = require('cors')
 
 //mandar llamar
 const app = express();
-require('./database')
+const connectdb = require('./config/db')
+connectdb();
     //middelwares
 
 app.use(morgan('combined'))
