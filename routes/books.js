@@ -1,17 +1,19 @@
 const { Router } = require('express');
 const router = Router();
-const {unlink} = require('fs-extra');
-const path = require('path');
-const {outputFile} =require('fs-extra')
-const { title } = require('process');
+// const {unlink} = require('fs-extra');
+// const path = require('path');
+// const {outputFile} =require('fs-extra')
+// const { title } = require('process');
 const bookcontroller = require('../controllers/bookController')
 
 
-const Book = require('../models/Book')
+
 
 router.get("/readall", bookcontroller.readall)
 
 router.post("/createbook",bookcontroller.createbook)
+
+router.delete("/:id",bookcontroller.delatebook)
 
 // router.get('/', async(req, res) => {
 //     let book = await Book.find();

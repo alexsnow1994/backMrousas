@@ -1,4 +1,6 @@
 const Book= require('../models/Book');
+const path = require('path')
+const {unlink} = require('fs-extra');
 
 exports.readall= async (req,res) =>  {
     const book = await Book.find();
@@ -19,4 +21,18 @@ res.json(({
     data: newbook
 }))
 };
+
+exports.delatebook= async(req ,res)=>{
+    const book = await Book.findByIdAndDelete(req.params.id);
+    console.log(book);
+    //  try {unlink(path.resolve('../public'+book.Path));}
+    //  catch(err){
+    //      console.log(err);
+    //  }
+     res.json({
+         message: "delating whit succes!!",
+         data: book         
+
+     })
+}
 
