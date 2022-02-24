@@ -9,12 +9,13 @@ const bookcontroller = require('../controllers/bookController')
 
 
 
-router.get("/readall", bookcontroller.readall)
+router.get("/readall", bookcontroller.readall);
 
-router.post("/createbook",bookcontroller.createbook)
+router.post("/createbook",bookcontroller.createbook);
 
-router.delete("/:id",bookcontroller.delatebook)
+router.delete("/:id",bookcontroller.delatebook);
 
+router.put("/:id", bookcontroller.update);
 // router.get('/', async(req, res) => {
 //     let book = await Book.find();
 //     res.json(book);

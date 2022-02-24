@@ -36,3 +36,17 @@ exports.delatebook= async(req ,res)=>{
      })
 }
 
+exports.update= async (req,res)=>{
+    const{title,author,isbn}=req.body;
+    let book= await Book.findById(req.params.id);
+    book.title= title;
+    book.author = author;
+    book.isbn = isbn;
+    book.save();
+    res.json({
+        message:"update",
+        data: book
+
+    })
+}
+
