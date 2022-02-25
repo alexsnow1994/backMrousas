@@ -31,6 +31,7 @@ app.set('port', process.env.PORT || 3000)
 app.set('json espaces', 2)
     //rutas
 app.use('/api/books', require('./routes/books'))
+app.use("/api/users", require("./routes/users"))
 
 /// static file 
 app.use(express.static(path.join(__dirname, 'public')))
