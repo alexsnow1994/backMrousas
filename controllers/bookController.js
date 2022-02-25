@@ -14,6 +14,7 @@ exports.createbook= async(req , res) =>{
         author,
         isbn
     })
+    console.log(newbook);
     await newbook.save();
     console.log(newbook);
 res.json(({

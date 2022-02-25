@@ -35,13 +35,13 @@ exports.create = async (req, res) => {
 			email,
 			password: hashedPassword
 		})
-
+        console.log(newUser);
 		const payload = {
 			user: {
 				id: newUser._id
 			}
 		}
-
+			console.log(payload);
 		jwt.sign(
 			payload,
 			process.env.SECRET,
