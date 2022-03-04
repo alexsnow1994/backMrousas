@@ -1,8 +1,18 @@
 const Book = require('../models/Book');
 const path = require('path')
 const { unlink } = require('fs-extra');
+const { fs} = require('fs');
 
 exports.readall = async (req, res) => {
+    // await db.collection('mycollection').find().toArray((err, result) => {
+ 
+    //     const imgArray= result.map(element => element._id);
+    //           console.log(imgArray);
+   
+    //  if (err) return console.log(err)
+    //  res.send(imgArray)
+   
+    // })
     const book = await Book.find();
     res.json(book)
 }
@@ -16,9 +26,29 @@ exports.createbook = async (req, res) => {
     const newbook = new Book({
         title,
         author,
-        isbn
+        isbn,
+       // image
     })
     console.log(newbook);
+    // const imgage = fs.readFileSync(rq.file.path);
+    // const encode_img=imgage.toString('base64');
+    // codificando la imagen 
+    
+    // var finalImg = {
+    //     contentType: req.file.mimetype,
+    //     image:  new Buffer(encode_img, 'base64')
+    //  };
+    //  await db.collection('quotes').insertOne(finalImg,  (err, result) => {
+    //   console.log(result)
+   
+    //   if (err) return console.log(err)
+   
+    //   console.log('saved to database')
+    //   res.redirect('/createbook')
+     
+       
+    // })
+
     await newbook.save();
     console.log(newbook);
     res.json(({
