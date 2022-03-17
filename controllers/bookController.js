@@ -68,12 +68,13 @@ exports.delatebook = async (req, res) => {
         message: "delating whit succes!!",
         data: book
 
-    })
+    });
 }
 
 exports.update = async (req, res) => {
     const { title, author, isbn } = req.body;
     let book = await Book.findById(req.params.id);
+    console.log(book);
     book.title = title;
     book.author = author;
     book.isbn = isbn;
